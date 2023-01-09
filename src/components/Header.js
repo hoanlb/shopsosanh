@@ -22,7 +22,7 @@ const ShowCate = (props) => {
 const Header = () => {
   const [keyword, setKeyword] = useState('');
   const [listCate, setListCate] = useState([]);
-  const getUserAPI = "http://localhost:3001/categories/";
+  const getUserAPI = "https://dummyjson.com/products/categories";
 
   const searchProduct = () => {
     setKeyword(keyword);

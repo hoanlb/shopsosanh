@@ -210,7 +210,7 @@ function Product(props) {
   let { Id } = useParams();
   const [productDetail, setProductDetail] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3001/products/${Id}`).then((res) => {
+    axios.get(`https://dummyjson.com/products/${Id}`).then((res) => {
       setProductDetail(res.data);
     })
       .catch((err) => {
