@@ -30,7 +30,7 @@ function Cate(props) {
   const [listProduct, setListProduct] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const getUserAPI = `http://localhost:3001/products?category=${Id}`;
+  const getUserAPI = `https://dummyjson.com/products/category/${Id}`;
   console.log(getUserAPI);
 
   const getProduct = () => {
@@ -38,7 +38,7 @@ function Cate(props) {
     axios
       .get(getUserAPI)
       .then((res) => {
-        setListProduct(res.data);
+        setListProduct(res.data.products);
       })
       .catch((err) => {
         alert("Can't connect server");
