@@ -1,0 +1,219 @@
+$blue: #1B74E4;
+
+@charset 'utf-8';
+/*------------------------------------------------------------
+	Reset
+------------------------------------------------------------*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+nav,
+section,
+time,
+mark,
+audio,
+video {
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+	display: block;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
+}
+
+body,
+table,
+input,
+textarea,
+select,
+option,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: sans-serif, Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-size: 14px;
+	color: #333333;
+}
+
+table,
+input,
+textarea,
+select,
+option {
+	line-height: 1.1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+:focus {
+	outline: 0;
+}
+
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+img {
+	vertical-align: top;
+}
+
+a {
+	transition: 0.3s ease-in-out;
+	text-decoration: none;
+}
+
+form label {
+	cursor: pointer;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 1280px;
+  margin: 0 auto;
+  @media (max-width: 1280px) {
+      width: 100%;
+  }
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flexbox_top {
+	display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+	.flex_right {
+		flex: 2;
+	}
+}
+
+img {
+  max-width: 100%;
+}
+
+.clear {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.text_left {
+	text-align: left;
+}
+.text_right {
+	text-align: right;
+}
+.text_center {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}

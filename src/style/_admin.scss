@@ -1,0 +1,22 @@
+fieldset {
+  margin-bottom: 20px;
+}
+
+label {
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90px;
+  }
+  input[type=text] {
+    height: 30px;
+    border-radius: 3px;
+    border: solid 1px #cccccc;
+    text-align: center;
+  }
+  select {
+    height: 30px;
+    border-radius: 3px;
+    border: solid 1px #cccccc;
+  }
+}
