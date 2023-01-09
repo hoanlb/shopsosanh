@@ -12,7 +12,7 @@ const ShowProduct = (props) => {
             <div className="product">
               <Link to={`/product/${product.id}`}>
                 <div className="product_img">
-                  <img src={product.thumbnail} />
+                  <img src={product.thumbnail} alt={product.title} />
                 </div>
                 <div className="product_name">{product.title}</div>
                 <div className="product_price">${product.price}</div>
