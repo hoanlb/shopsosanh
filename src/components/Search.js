@@ -54,14 +54,6 @@ function Search(props) {
   return (
     <div className="productcate">
       <div className="container">
-        {/* <div className="filter">
-          <div className="filter_group">
-            <div className="filter_group__title">Brand</div>
-            <div className="filter_group__content">
-
-            </div>
-          </div>
-        </div> */}
         {isLoading ? "loading..." : <ShowProduct listProduct={listProduct} />}
       </div>
     </div>
