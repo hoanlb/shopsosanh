@@ -22,6 +22,8 @@ const ShowCate = (props) => {
 const Header = () => {
   const [keyword, setKeyword] = useState('');
   const [listCate, setListCate] = useState([]);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [userLogin, setUserLogin] = useState([]);
   const getUserAPI = "https://dummyjson.com/products/categories";
 
@@ -46,24 +48,6 @@ const Header = () => {
   };
   useEffect(()=>{
     getCate();
-  },[])
-
-  useEffect(()=>{
-    axios.get(`https://dummyjson.com/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: 'atuny0',
-        password: '9uQFF1Lh'
-      })
-    }).then((res) => {
-      setUserLogin(res.data);
-    })
-    .catch((err) => {
-      alert("Can't connect server");
-    })
-    .finally(() => {
-    });
   },[])
 
   return (
@@ -92,11 +76,6 @@ const Header = () => {
             <Link to="/blog">Blog</Link>
           </li>
         </ul>
-        <div className="Login">
-          {JSON.stringify(userLogin)}
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-        </div>
       </div>
     </div>
   );
