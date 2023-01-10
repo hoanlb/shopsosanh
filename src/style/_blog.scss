@@ -1,0 +1,29 @@
+.blogs {}
+.blog {
+  padding: 20px 0;
+  border-top: solid 1px #e1e1e1;
+  &:first-of-type {
+    padding-top: 0;
+    border-top: none;
+  }
+  .blog_name {
+    font-size: 18px;
+    color: #333333;
+    line-height: 27px;
+    margin-bottom: 6px;
+  }
+  .blog_desc {
+    font-size: 14px;
+    color: #333333;
+    line-height: 22px;
+  }
+}
+.comments {
+  margin-top: 10px;
+}
+.comment {
+  font-size: 14px;
+  color: #333333;
+  line-height: 22px;
+  text-align: right;
+}
