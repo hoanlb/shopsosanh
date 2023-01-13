@@ -50,6 +50,7 @@ const Header = () => {
     getCate();
   },[])
 
+
   return (
     <div className="header">
       <div className="container flexbox">
