@@ -1,60 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { Rounter, Routes, Route, Switch, Link, Outlet } from "react-router-dom";
 import axios from 'axios';
+import Lodash from "lodash";
 
 function Blog() {
-  const [Blogs, setBlogs] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [mergedList,setMergedList] = useState([]);
 
-  const getBlog = () => {
-    axios
-      .get(`https://dummyjson.com/posts`)
-      .then((res) => {
-        setBlogs(res.data.posts);
-      })
-      .catch((err) => {
-        alert("Can't connect server");
-      })
-      .finally(() => {
+  useEffect(() => {
+    fetch(`https://dummyjson.com/posts?limit=150`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data.posts);
       });
-  };
-  useEffect(()=>{
-    getBlog();
-  },[])
+  }, [])
 
-  const [Comments, setComments] = useState([]);
-  const getComment = () => {
-    axios
-    .get(`https://dummyjson.com/comments`)
-      .then((res) => {
-        setComments(res.data.comments);
-      })
-      .catch((err) => {
-        alert("Can't connect server");
-      })
-      .finally(() => {
+  useEffect(() => {
+    fetch(`https://dummyjson.com/comments?limit=340`)
+      .then((res) => res.json())
+      .then((data) => {
+        data = Lodash.groupBy(data.comments, item => item.postId);
+        const dataArray = Object.keys(data).map(key => ({ key, list: data[key] }))
+        setComments(dataArray);
       });
-  };
+  }, [])
+
   useEffect(()=>{
-    getComment();
-  },[])
+    const merged = Lodash.merge(Lodash.keyBy(comments,'key'), Lodash.keyBy(posts,'id'));
+    const values = Lodash.values(merged);
+    setMergedList(values);
+  },[posts, comments])
 
   return (
     <div className="blog">
       <div className="container">
         <div className="blogs">
-          {Blogs.map((blog, index) => {
+          {mergedList?.map((blog, index) => {
             return (
               <React.Fragment key={blog.id}>
                 <div className="blog">
                   <div className="blog_name">{blog.title}</div>
                   <div className="blog_desc">{blog.body}</div>
                   <div className="comments">
-                    {Comments.map((comment, index) => {
+                    {blog?.list?.map((comment, index) => {
                       return (
                         <React.Fragment key={comment.id}>
-                          {comment.postId === blog.id ? (
                           <div className="comment">{comment.body} - <i>{comment.user.username}</i></div>
-                          ) : ''}
                         </React.Fragment>
                       );
                     })}
